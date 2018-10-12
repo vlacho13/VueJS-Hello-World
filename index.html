@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="semantic/out/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="semantic/out/semantic.min.js"></script>
+
+    <style>
+        .main.container {
+            padding-top: 50px;
+        }
+    </style>
+
+    <title>VueJS Getting Started!</title>
+</head>
+
+<body>
+
+    <div class="ui inverted fixed menu">
+        <div class="header item">Tutorial</div>
+    </div>
+
+    <div class="ui main container" id="app">
+        <a :href="link" :title="title">{{ hello }}</a>
+        <ul>
+            <li v-for="name in nameList">{{ name }}</li>
+        </ul>
+
+        <div class="ui success message" v-if="test">
+            <i class="close icon" v-on:click="close()"></i>
+            <p>Bravo! it works!</p>
+        </div>
+        <div class="ui error message" v-else>
+            <i class="close icon" @click="close()"></i>
+            <p>Failure, it doesnt work :(</p>
+        </div>
+
+        <input type="text" v-model="message" :style="changeStyle()">
+        <input type="checkbox" v-model="testTwo">
+        <div class="ui message" :class="testTwo ? 'success' : 'error'">
+            <p>{{ message }}</p>
+        </div>
+
+        
+
+
+    </div>
+
+    <div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
