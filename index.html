@@ -27,8 +27,10 @@
     </div>
 
     <div class="ui main container" id="app">
-        <a :href="link" :title="title">{{ hello }}</a>
+        <a :href="link" :title="title">{{ hello }}</a><br>
+        
         <ul>
+            <a class="ui label">LIST</a>
             <li v-for="name in nameList">{{ name }}</li>
         </ul>
 
@@ -47,7 +49,12 @@
             <p>{{ message }}</p>
         </div>
 
-        
+        <div class="ui container">
+            <a class="ui label">Timer</a>
+            {{ seconds }}
+        </div>
+
+
 
 
     </div>
