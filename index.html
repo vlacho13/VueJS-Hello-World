@@ -27,13 +27,14 @@
     </div>
 
     <div class="ui main container" id="app">
+
+        <!--PART 1-->
         <a :href="link" :title="title">{{ hello }}</a><br>
-        
         <ul>
             <a class="ui label">LIST</a>
             <li v-for="name in nameList">{{ name }}</li>
         </ul>
-
+        <hr>
         <div class="ui success message" v-if="test">
             <i class="close icon" v-on:click="close()"></i>
             <p>Bravo! it works!</p>
@@ -48,14 +49,32 @@
         <div class="ui message" :class="testTwo ? 'success' : 'error'">
             <p>{{ message }}</p>
         </div>
-
+        <hr>
+        <!--PART 2-->
         <div class="ui container">
             <a class="ui label">Timer</a>
             {{ seconds }}
+            <button class="tiny ui button" @click="stop()">
+                Stop
+            </button>
         </div>
-
-
-
+        <hr>
+        <!--PART 3-->
+        <input type="checkbox" v-model="success">
+        <input type="text" v-model="message2">
+        {{ message2 }}
+        <div class="ui message" :class="cls">
+            <p>Salut les gens</p>
+        </div>
+        <hr>
+        <div class="ui container">
+            <p>
+                First Name: {{ firstName }} <br>
+                Last Name: {{ lastName }} <br>
+                Full Name: <input type="text" v-model="fullName"> <br>        
+            </p>
+        </div>
+        <hr>
 
     </div>
 

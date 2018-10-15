@@ -1,4 +1,4 @@
-new Vue({
+let vm = new Vue({
   //PART 1 - VUE BASIC FUNCTIONS
   el: "#app",
   data: {
@@ -9,7 +9,11 @@ new Vue({
     nameList: ["James", "Liz", "Charlie", "Daphne", "Brian"],
     message: "Modify Me",
     testTwo: true,
-    seconds: 0
+    seconds: 0,
+    success: false,
+    message2: "Change meEeE",
+    firstName: "Diana",
+    lastName: "Barrios"
   },
   methods: {
     close: function() {
@@ -25,6 +29,9 @@ new Vue({
       } else {
         return { background: "#FF0000" };
       }
+    },
+    stop: function() {
+      vm.$destroy();
     }
   },
   //PART 2 - INSTANCING AND LIFECYCLE OVERVIEW
@@ -35,6 +42,28 @@ new Vue({
     }, 1000);
   },
   destroyed: function() {
-      clearInterval(this.$tictac)
+    clearInterval(this.$tictac);
+  },
+  //PART 3 - COMBINED PROPERTIES AND WATCHERS
+  computed: {
+    cls: function() {
+      console.log("cls called");
+      return this.success === true ? "success" : "error";
+    },
+    fullName: {
+      get: function() {
+        return this.firstName + " " + this.lastName
+      },
+      set: function(value) {
+        let parts = value.split(" ")
+        this.firstName = parts[0]
+        this.lastName = parts[1]
+      }
+    }
+  },
+  watch: {
+    message2: function(value) {
+      console.log("watch ", value)
+    }
   }
 });
