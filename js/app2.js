@@ -14,12 +14,11 @@ let hello = function(el, binding, vnode) {
   console.log("bind")
 }
 */
-
 let vm = new Vue({
   el: "#app",
-  directives: {
-    hello
-  },
+  /*directives: {
+    hello: 
+  },*/
   data: {
     message : "",
     number: "",
