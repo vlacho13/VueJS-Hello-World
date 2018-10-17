@@ -31,7 +31,7 @@
         {{ number }}
         <hr>
         <p>Created Directive</p>
-        <input type="text" v-salut.a.b.c="test">
+        <input type="text" v-salut="test">
         <p>Update Directive(Console)</p>
         <input type="text" v-model="test">
         <hr>
@@ -39,6 +39,17 @@
         <div class="ui container">
             {{ message2 | capitalize }} <br>
             {{ message3 | capitalize | reverse }}
+        </div>
+        <hr>
+        <!--PART 6 - COMPONENTS-->
+        <div class="ui container">
+            <mycomponent type="success" :message="test2"></mycomponent>
+            <mycomponent2 type="error" :message="test3"></mycomponent2>
+            <b>Counter from zero</b> <counter></counter> Click to increment<br>
+            <b>Counter from ten</b> <counter :start="10"></counter>
+            <hr>
+            <mycomponent3 type="error" :message="test" header="Intruder Alert!!!" v-if="alert" @closeit="hideAlert"></mycomponent3>
+            <button @click="showAlert()" v-if="!alert"> Press for Alert</button>
         </div>
 
 
