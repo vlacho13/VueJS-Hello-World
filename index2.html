@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="semantic/out/semantic.min.js"></script>
-    
+
     <title>Vue Directives</title>
 </head>
 
@@ -20,7 +20,7 @@
         <div class="header item">Learning VueJS Part 4</div>
     </div>
 
-    <!--PART 4-->
+    <!--PART 4 - DIRECTIVES-->
     <div class="ui main container" id="app">
         <p>Model Lazy</p>
         <input type="text" v-model.lazy="message">
@@ -34,8 +34,14 @@
         <input type="text" v-salut.a.b.c="test">
         <p>Update Directive(Console)</p>
         <input type="text" v-model="test">
+        <hr>
+        <!--PART 5 - FILTERS-->
+        <div class="ui container">
+            {{ message2 | capitalize }} <br>
+            {{ message3 | capitalize | reverse }}
+        </div>
 
-        
+
     </div>
 
 
