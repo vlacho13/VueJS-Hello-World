@@ -46,10 +46,19 @@
             <mycomponent type="success" :message="test2"></mycomponent>
             <mycomponent2 type="error" :message="test3"></mycomponent2>
             <b>Counter from zero</b> <counter></counter> Click to increment<br>
-            <b>Counter from ten</b> <counter :start="10"></counter>
+            <b>Counter from ten</b> <counter :start="10"></counter> Click to increment
             <hr>
             <mycomponent3 type="error" :message="test" header="Intruder Alert!!!" v-if="alert" @closeit="hideAlert"></mycomponent3>
             <button @click="showAlert()" v-if="!alert"> Press for Alert</button>
+            <hr>
+
+            <form-user v-model="user">
+                <div slot="header">SLOT FOR HEADER</div>
+                <div slot="footer">SLOT FOR FOOTER</div>
+            </form-user>       
+            <pre>
+                {{ user }}
+            </pre>     
         </div>
 
 

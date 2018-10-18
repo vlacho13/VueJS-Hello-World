@@ -33,7 +33,7 @@ Vue.component("mycomponent", {
 let mycomponent2 = {
   props: {
     type: { type: String, default: "success" },
-    message: String,
+    message: String
   },
   template: `<div class="ui message" :class="type">{{ message }}</div>`
 };
@@ -51,8 +51,8 @@ let mycomponent3 = {
   methods: {
     close: function() {
       //this.$parent.$data.alert = false
-      this.$emit('closeit') //Emite evento @closeit generado manualmente, el cual llama hideAlert
-    },    
+      this.$emit("closeit"); //Emits event @closeit generated manually, which then calls hideAlert
+    }
   }
 };
 
@@ -76,6 +76,38 @@ let counter = {
   }
 };
 
+let formUser = {
+  props: {
+    value: Object
+  },
+  data: function() {
+    return {
+      user: { ...this.value }
+    };
+  },
+  methods: {
+    save: function () {
+      this.$emit('input', this.user)
+    }
+  },
+  template: `
+  <form class="ui form" @submit.prevent="save">
+    <a class="ui teal tag label">Form</a>
+    <p><slot name="header"></slot></p>
+    <div class="field>
+      <label for="">First Name</label>
+      <input type="text" v-model="user.firstName">
+    </div>
+    <div class="field>
+      <label for="">Last Name</label>
+      <input type="text" v-model="user.lastName">
+    </div><br>
+    <button class="ui button" type="submit">Send</button>
+    <p><slot name="footer"></slot></p>
+  </form>  
+  `
+};
+
 let vm = new Vue({
   el: "#app",
   directives: {
@@ -84,7 +116,8 @@ let vm = new Vue({
   components: {
     mycomponent2,
     counter,
-    mycomponent3
+    mycomponent3,
+    formUser
   },
   data: {
     message: "!",
@@ -94,17 +127,19 @@ let vm = new Vue({
     test: "Test...",
     test2: "Voila!",
     test3: "Error message :(",
-    alert: false
+    alert: false,
+    user: {
+      firstName: "Pablo",
+      lastName: "Marmol"
+    }
   },
-  filters: {
-    reverse
-  },
+  filters: { reverse },
   methods: {
     showAlert: function() {
-      this.alert = true
+      this.alert = true;
     },
-    hideAlert: function () {
-      this.alert = false
+    hideAlert: function() {
+      this.alert = false;
     }
   }
 });
